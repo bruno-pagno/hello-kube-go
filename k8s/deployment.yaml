@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hello-kube-go
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: hello-kube-go
+  template:
+    metadata:
+      labels:
+        app: hello-kube-go
+    spec:
+      containers:
+        - name: hello-kube-go
+          image: bpagno/hello-kube-go:1.0
+          ports:
+            - containerPort: 8080
